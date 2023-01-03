@@ -1,62 +1,43 @@
 #include <stdio.h>
 #include "carte.h"
 
-int attribuer_valeur(char* valeur, int valeurlen, char* buf, int buflen)
-{
-    if (buflen < valeurlen)
-    {
-        return -1;
-    }
-    else
-    {
-        buf = valeur;
-        return 0;
-    }
-}
-
-int nom_couleur(Couleur c, char* buf, int buflen)
+char* 
+nom_couleur(Couleur c)
 {
     switch (c) 
     {
-        case CARREAU: return attribuer_valeur("CARREAU", 7, buf, buflen);
-        case COEUR: return attribuer_valeur("COEUR", 5, buf, buflen);
-        case PIQUE: return attribuer_valeur("PIQUE", 5, buf, buflen);
-        case TREFLE: return attribuer_valeur("TREFLE", 6, buf, buflen);
-        default: return -1;
+        case CARREAU: return "CARREAU";
+        case COEUR: return "COEUR";
+        case PIQUE: return "PIQUE";
+        case TREFLE: return "TREFLE";
+        default: return "";
     }
 }
 
-int nom_valeur(Valeur v, char* buf, int buflen)
+char*
+nom_valeur(Valeur v)
 {
     switch (v)
     {
-        case AS: return attribuer_valeur("AS", 2, buf, buflen);
-        case DEUX: return attribuer_valeur("DEUX", 4, buf, buflen);
-        case TROIS: return attribuer_valeur("TROIS", 5, buf, buflen);
-        case QUATRE: return attribuer_valeur("QUATRE", 5, buf, buflen);
-        case CINQ: return attribuer_valeur("CINQ", 4, buf, buflen);
-        case SIX: return attribuer_valeur("SIX", 3, buf, buflen);
-        case SEPT: return attribuer_valeur("SEPT", 4, buf, buflen);
-        case HUIT: return attribuer_valeur("HUIT", 4, buf, buflen);
-        case NEUF: return attribuer_valeur("NEUF", 4, buf, buflen);
-        case DIX: return attribuer_valeur("DIX", 3, buf, buflen);
-        case VALET: return attribuer_valeur("VALET", 5, buf, buflen);
-        case DAME: return attribuer_valeur("DAME", 4, buf, buflen);
-        case ROI: return attribuer_valeur("ROI", 3, buf, buflen);
-        default: return -1;
+        case AS: return "AS";
+        case DEUX: return "DEUX";
+        case TROIS: return "TROIS";
+        case QUATRE: return "QUATRE";
+        case CINQ: return "CINQ";
+        case SIX: return "SIX";
+        case SEPT: return "SEPT";
+        case HUIT: return "HUIT";
+        case NEUF: return "NEUF";
+        case DIX: return "DIX";
+        case VALET: return "VALET";
+        case DAME: return "DAME";
+        case ROI: return "ROI";
+        default: return "";
     }
 }
 
-void afficher_carte(Carte c)
+void
+afficher_carte(Carte c)
 {
-    char couleur[7], valeur[6];
-    if (nom_couleur(c.couleur, &couleur, sizeof couleur) == -1)
-    {
-        couleur = "COULEUR INVALIDE";
-    }
-    if (nom_valeur(c.valeur, &valeur, sizeof valeur) == -1)
-    {
-        valeur = "VALEUR INVALIDE";
-    }
-    printf("%s de %s\n", couleur, valeur);
+    printf("%s de %s\n", nom_valeur(c.valeur), nom_couleur(c.couleur));    
 }

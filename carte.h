@@ -10,8 +10,8 @@ typedef struct
     Valeur valeur;
 } Carte;
 
-int nom_couleur(Couleur c, char* buf, int buflen);
-int nom_valeur(Valeur v, char* buf, int buflen);
+char* nom_couleur(Couleur c);
+char* nom_valeur(Valeur v);
 void afficher_carte(Carte c);
 
 #endif
