@@ -9,9 +9,7 @@ generer_paquet(Paquet* p)
     {
         for (int valeur = AS; valeur <= ROI; valeur++)
         {
-            Carte c;
-            c.couleur = couleur;
-            c.valeur = valeur;
+            Carte c = { .couleur = couleur, .valeur = valeur };
             p->cartes[i] = c;
             i++;
         }
