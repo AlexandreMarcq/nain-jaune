@@ -1,10 +1,14 @@
-#include "carte.h"
+#include "paquet.h"
 
 int main()
 {
-    Carte c;
-    c.valeur = AS;
-    c.couleur = CARREAU;
-    afficher_carte(c);
+    Paquet p;
+    generer_paquet(&p);
+
+    for (int i = 0; i < TAILLE_PAQUET; i++) 
+    {
+        afficher_carte(p.cartes[i]);
+    }
+
     return 0;
 }
