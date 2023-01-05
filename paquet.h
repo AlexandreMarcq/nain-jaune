@@ -6,7 +6,7 @@
 #define TAILLE_PAQUET 52
 
 typedef struct {
-    Carte cartes[TAILLE_PAQUET];
+    Node* cartes;
 } Paquet;
 
 void generer_paquet(Paquet* p);

@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "carte.h"
 
 char* 
@@ -40,4 +41,42 @@ void
 afficher_carte(Carte c)
 {
     printf("%s de %s\n", nom_valeur(c.valeur), nom_couleur(c.couleur));    
+}
+
+void
+ajouter_carte(Node** premiere, Carte* c)
+{
+    Node* nouvelle = (Node*) malloc(sizeof(Node));
+    nouvelle->carte = c;
+    nouvelle->suivante = NULL;
+    nouvelle->derniere = NULL;
+
+    if (*premiere == NULL)
+    {
+        *premiere = nouvelle;
+        return;
+    }
+    
+    Node* temp = *premiere;
+    while (temp->suivante != NULL)
+    {
+        temp = temp->suivante;
+    }
+    
+    temp->suivante = nouvelle;
+    return;
+}
+
+void
+vider_liste(Node* premiere)
+{
+    Node* temp;
+
+    while (premiere != NULL)
+    {
+        temp  = premiere;
+        premiere = premiere->suivante;
+        free(temp->carte);
+        free(temp);
+    }
 }

@@ -1,14 +1,16 @@
+#include <stddef.h>
 #include "paquet.h"
 
 int main()
 {
-    Paquet p;
+    Paquet p = { .cartes = NULL };
     generer_paquet(&p);
 
-    for (int i = 0; i < TAILLE_PAQUET; i++) 
+    for (Node* n = p.cartes; n != NULL; n = n->suivante)
     {
-        afficher_carte(p.cartes[i]);
+        afficher_carte(*(n->carte));
     }
 
+    vider_liste(p.cartes);
     return 0;
 }
