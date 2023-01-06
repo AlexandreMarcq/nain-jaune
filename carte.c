@@ -44,19 +44,19 @@ afficher_carte(Carte c)
 }
 
 void
-ajouter_carte(Node** premiere, Carte* c)
+ajouter_carte(Node** premiere, Carte c)
 {
     Node* nouvelle = (Node*) malloc(sizeof(Node));
     nouvelle->carte = c;
     nouvelle->suivante = NULL;
-    nouvelle->derniere = NULL;
 
     if (*premiere == NULL)
     {
         *premiere = nouvelle;
         return;
     }
-    
+
+
     Node* temp = *premiere;
     while (temp->suivante != NULL)
     {
@@ -76,7 +76,17 @@ vider_liste(Node* premiere)
     {
         temp  = premiere;
         premiere = premiere->suivante;
-        free(temp->carte);
         free(temp);
     }
+}
+
+Node*
+trouver_carte(Node* premiere, size_t index)
+{
+    Node* resultat = premiere;
+    while (index-- && resultat->suivante)
+    {
+        resultat = resultat->suivante;
+    }
+    return resultat;
 }
