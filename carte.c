@@ -40,11 +40,11 @@ nom_valeur(Valeur v)
 void
 afficher_carte(Carte c)
 {
-    printf("%s de %s\n", nom_valeur(c.valeur), nom_couleur(c.couleur));    
+    printf("%s de %s\n", nom_valeur(c.valeur), nom_couleur(c.couleur));
 }
 
 void
-ajouter_carte(Node** premiere, Carte c)
+ajouter_carte(Node** premiere, Carte* c)
 {
     Node* nouvelle = (Node*) malloc(sizeof(Node));
     nouvelle->carte = c;

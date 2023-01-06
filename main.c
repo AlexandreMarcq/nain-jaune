@@ -12,7 +12,7 @@ int main()
     
     for (Node* n = p.cartes; n != NULL; n = n->suivante)
     {
-        afficher_carte(n->carte);
+        afficher_carte(*(n->carte));
     }
 
     vider_liste(p.cartes);

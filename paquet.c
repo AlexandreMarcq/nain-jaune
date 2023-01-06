@@ -17,7 +17,7 @@ generer_paquet(Paquet* p)
             Carte* c = (Carte*) malloc(sizeof(Carte));
             c->couleur = couleur;
             c->valeur = valeur;
-            ajouter_carte(&(p->cartes), *c);
+            ajouter_carte(&(p->cartes), c);
             i++;
         }
     }
@@ -38,7 +38,7 @@ melanger_paquet(Paquet* p)
             size_t rnd = (size_t) rand() / (RAND_MAX / p->taille + 1);
 
             Node* echange = trouver_carte(premiere, rnd);
-            Carte c = echange->carte;
+            Carte* c = echange->carte;
             echange->carte = temp->carte;
             temp->carte = c;
 
