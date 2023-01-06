@@ -30,8 +30,7 @@ melanger_paquet(Paquet* p)
     Node* premiere = p->cartes;
     if (premiere && premiere->suivante)
     {
-        //srand(time(NULL));
-        srand(1);
+        srand(time(NULL));
 
         Node* temp = premiere;
         while (temp->suivante)
