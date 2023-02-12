@@ -46,3 +46,10 @@ melanger_paquet(Paquet* p)
         }
     }
 }
+
+void
+supprimer_paquet(Paquet* p)
+{
+   vider_liste_carte(p->cartes);
+   free(p);
+}
