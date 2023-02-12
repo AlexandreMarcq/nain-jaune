@@ -7,4 +7,6 @@ typedef struct {
     int nombre_dix;
 } Pions;
 
+void afficher_pions(Pions p);
+
 #endif
