@@ -24,8 +24,31 @@ void
 supprimer_joueur(Joueur* j)
 {
     free(j->pions);
-    vider_liste_carte(j->main);
+    vider_liste_cartes(j->main);
     free(j);
+}
+
+size_t
+nombre_joueurs(ListeJoueur* premier)
+{
+    size_t n = 0;
+    ListeJoueur* temp = premier;
+
+    if (premier == NULL)
+    {
+        return 0;
+    } else 
+    {
+        n++;
+    }
+
+    while (temp->suivant != NULL)
+    {
+        n++;
+        temp = temp->suivant;
+    }
+
+    return n;
 }
 
 void
@@ -52,7 +75,7 @@ ajouter_joueur(ListeJoueur** premier, Joueur* j)
 }
 
 void
-vider_liste_joueur(ListeJoueur* premier)
+vider_liste_joueurs(ListeJoueur* premier)
 {
     ListeJoueur* temp;
 
