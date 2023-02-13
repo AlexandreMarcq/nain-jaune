@@ -38,15 +38,38 @@ nom_valeur(Valeur v)
 }
 
 void
-afficher_carte(Carte c)
+afficher_carte(Carte* c)
 {
-    printf("%s de %s\n", nom_valeur(c.valeur), nom_couleur(c.couleur));
+    printf("%s de %s\n", nom_valeur(c->valeur), nom_couleur(c->couleur));
+}
+
+size_t
+taille_liste(ListeCarte* premiere)
+{
+    size_t n = 0;
+    ListeCarte* temp = premiere;
+
+    if (premiere == NULL)
+    {
+        return 0;
+    } else 
+    {
+        n++;
+    }
+
+    while (temp->suivante != NULL)
+    {
+        n++;
+        temp = temp->suivante;
+    }
+
+    return n;
 }
 
 void
 ajouter_carte(ListeCarte** premiere, Carte* c)
 {
-    ListeCarte* nouvelle = (ListeCarte*) malloc(sizeof(Node));
+    ListeCarte* nouvelle = (ListeCarte*) malloc(sizeof(ListeCarte));
     nouvelle->carte = c;
     nouvelle->suivante = NULL;
 
@@ -64,20 +87,6 @@ ajouter_carte(ListeCarte** premiere, Carte* c)
     }
     
     temp->suivante = nouvelle;
-    return;
-}
-
-void
-vider_liste(ListeCarte* premiere)
-{
-    ListeCarte* temp;
-
-    while (premiere != NULL)
-    {
-        temp  = premiere;
-        premiere = premiere->suivante;
-        free(temp);
-    }
 }
 
 ListeCarte*
@@ -89,4 +98,36 @@ trouver_carte(ListeCarte* premiere, size_t index)
         resultat = resultat->suivante;
     }
     return resultat;
+}
+
+void
+trier_cartes(ListeCarte** premiere)
+{
+    size_t taille = taille_liste(*premiere);
+    for (size_t n = taille; n > 1; n--)
+    {
+        ListeCarte* temp = *premiere;
+        while (temp->suivante != NULL)
+        {
+            if (temp->carte->valeur > temp->suivante->carte->valeur) {
+                Carte* c = temp->carte;
+                temp->carte = temp->suivante->carte;
+                temp->suivante->carte = c;
+            }
+            temp = temp->suivante;
+        } 
+    }
+}
+
+void
+vider_liste_carte(ListeCarte* premiere)
+{
+    ListeCarte* temp;
+
+    while (premiere != NULL)
+    {
+        temp = premiere;
+        premiere = premiere->suivante;
+        free(temp);
+    }
 }
