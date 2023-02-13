@@ -50,6 +50,6 @@ melanger_paquet(Paquet* p)
 void
 supprimer_paquet(Paquet* p)
 {
-   vider_liste_carte(p->cartes);
+   vider_liste_cartes(p->cartes);
    free(p);
 }

@@ -26,6 +26,6 @@ void
 supprimer_plateau(Plateau* p)
 {
     supprimer_paquet(p->paquet);
-    vider_liste_joueur(p->joueurs);
+    vider_liste_joueurs(p->joueurs);
     free(p);
 }

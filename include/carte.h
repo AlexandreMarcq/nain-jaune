@@ -21,10 +21,10 @@ typedef struct ListeCarte
 char* nom_couleur(Couleur c);
 char* nom_valeur(Valeur v);
 void afficher_carte(Carte* c);
-size_t taille_liste(ListeCarte* premiere);
+size_t nombre_cartes(ListeCarte* premiere);
 void ajouter_carte(ListeCarte** premiere, Carte* c);
 ListeCarte* trouver_carte(ListeCarte* premiere, size_t index);
 void trier_cartes(ListeCarte** premiere);
-void vider_liste_carte(ListeCarte* premiere);
+void vider_liste_cartes(ListeCarte* premiere);
 
 #endif

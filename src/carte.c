@@ -44,7 +44,7 @@ afficher_carte(Carte* c)
 }
 
 size_t
-taille_liste(ListeCarte* premiere)
+nombre_cartes(ListeCarte* premiere)
 {
     size_t n = 0;
     ListeCarte* temp = premiere;
@@ -103,7 +103,7 @@ trouver_carte(ListeCarte* premiere, size_t index)
 void
 trier_cartes(ListeCarte** premiere)
 {
-    size_t taille = taille_liste(*premiere);
+    size_t taille = nombre_cartes(*premiere);
     for (size_t n = taille; n > 1; n--)
     {
         ListeCarte* temp = *premiere;
@@ -120,7 +120,7 @@ trier_cartes(ListeCarte** premiere)
 }
 
 void
-vider_liste_carte(ListeCarte* premiere)
+vider_liste_cartes(ListeCarte* premiere)
 {
     ListeCarte* temp;
 
