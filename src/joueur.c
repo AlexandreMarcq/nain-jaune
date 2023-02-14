@@ -21,6 +21,12 @@ initialiser_pions_joueur(Joueur* j)
 }
 
 void
+afficher_joueur(Joueur* j)
+{
+    afficher_pions(*(j->pions));
+}
+
+void
 supprimer_joueur(Joueur* j)
 {
     free(j->pions);
@@ -72,6 +78,18 @@ ajouter_joueur(ListeJoueur** premier, Joueur* j)
 
     temp->suivant = nouveau;
     return;
+}
+
+void
+afficher_joueurs(ListeJoueur* premier)
+{
+    ListeJoueur* temp = premier;
+
+    while (temp->suivant != NULL)
+    {
+        afficher_joueur(temp->joueur);
+        temp = temp->suivant;
+    }
 }
 
 void

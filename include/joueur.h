@@ -16,9 +16,11 @@ typedef struct ListeJoueur {
 
 Joueur* nouveau_joueur();
 void initialiser_pions_joueur(Joueur* j);
+void afficher_joueur(Joueur* j);
 void supprimer_joueur(Joueur* j);
 size_t nombre_joueurs(ListeJoueur* premier);
 void ajouter_joueur(ListeJoueur** premier, Joueur* j);
+void afficher_joueurs(ListeJoueur* premier);
 void vider_liste_joueurs(ListeJoueur* premier);
 
 #endif
