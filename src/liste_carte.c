@@ -1,3 +1,4 @@
+#include <time.h>
 #include "liste_carte.h"
 
 size_t
@@ -55,6 +56,28 @@ trouver_carte(ListeCarte* premiere, size_t index)
         resultat = resultat->suivante;
     }
     return resultat;
+}
+
+void
+melanger_cartes(ListeCarte** premiere)
+{
+    if (*premiere && (*premiere)->suivante)
+    {
+        srand(time(NULL));
+
+        ListeCarte* temp = *premiere;
+        while (temp->suivante)
+        {
+            size_t rnd = (size_t) rand() / (RAND_MAX / nombre_cartes(*premiere) + 1);
+
+            ListeCarte* echange = trouver_carte(*premiere, rnd);
+            Carte* c = echange->carte;
+            echange->carte = temp->carte;
+            temp->carte = c;
+
+            temp = temp->suivante;
+        }
+    }
 }
 
 void

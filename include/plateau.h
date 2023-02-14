@@ -3,7 +3,6 @@
 
 #include <stdlib.h>
 #include "liste_joueur.h"
-#include "paquet.h"
 #include "pion.h"
 
 typedef struct {
@@ -12,11 +11,12 @@ typedef struct {
     Pions* dame_pique;
     Pions* roi_coeur;
     Pions* sept_carreau;
-    Paquet* paquet;
+    ListeCarte* paquet;
     ListeJoueur* joueurs;
 } Plateau;
 
 Plateau* nouveau_plateau(size_t nombre_joueurs);
+void generer_paquet(Plateau* p);
 void distribuer_cartes(Plateau* p);
 void supprimer_plateau(Plateau* p);
 

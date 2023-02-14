@@ -6,10 +6,8 @@ nouveau_plateau(size_t nombre_joueurs)
 {
     Plateau* plateau = (Plateau*) malloc(sizeof(Plateau));
 
-    Paquet* paquet = (Paquet*) malloc(sizeof(Paquet));
-    paquet->cartes = NULL;
-    generer_paquet(paquet);
-    melanger_paquet(paquet);
+    generer_paquet(plateau);
+    melanger_cartes(&(plateau->paquet));
 
     plateau->joueurs = NULL;
     for (int i = 0; i < nombre_joueurs; i++)
@@ -18,17 +16,32 @@ nouveau_plateau(size_t nombre_joueurs)
         ajouter_joueur(&(plateau->joueurs), j);
     }
 
-    plateau->paquet = paquet;
     return plateau;
+}
+
+void
+generer_paquet(Plateau* p)
+{
+    p->paquet = NULL;
+    for (int couleur = CARREAU; couleur <= TREFLE; couleur++)
+    {
+        for (int valeur = AS; valeur <= ROI; valeur++)
+        {
+            Carte* c = (Carte*) malloc(sizeof(Carte));
+            c->couleur = couleur;
+            c->valeur = valeur;
+            ajouter_carte(&(p->paquet), c);
+        }
+    }
 }
 
 void
 distribuer_cartes(Plateau* p)
 {
-    size_t cartes_par_joueur = p->paquet->taille / nombre_joueurs(p->joueurs);
+    size_t cartes_par_joueur = nombre_cartes(p->paquet) / nombre_joueurs(p->joueurs);
 
     ListeJoueur* joueur_curs = p->joueurs;
-    ListeCarte* carte_curs = p->paquet->cartes;
+    ListeCarte* carte_curs = p->paquet;
     while (joueur_curs != NULL)
     {
         for (size_t n = 0; n < cartes_par_joueur; n++)
