@@ -38,7 +38,7 @@ generer_paquet(Plateau* p)
 void
 distribuer_cartes(Plateau* p)
 {
-    size_t cartes_par_joueur = nombre_cartes(p->paquet) / nombre_joueurs(p->joueurs);
+    size_t cartes_par_joueur = nombre_liste_cartes(p->paquet) / nombre_joueurs(p->joueurs);
 
     ListeJoueur* joueur_curs = p->joueurs;
     ListeCarte* carte_curs = p->paquet;
@@ -56,7 +56,7 @@ distribuer_cartes(Plateau* p)
 void
 supprimer_plateau(Plateau* p)
 {
-    supprimer_paquet(p->paquet);
+    vider_liste_cartes(p->paquet);
     vider_liste_joueurs(p->joueurs);
     free(p);
 }

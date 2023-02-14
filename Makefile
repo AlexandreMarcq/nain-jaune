@@ -5,10 +5,10 @@ ODIR = ./src/obj
 CC=gcc
 CFLAGS=-I$(IDIR) -Wall
 
-_DEPS = carte.h joueur.h liste_carte.h liste_joueur.h paquet.h pion.h plateau.h
+_DEPS = carte.h joueur.h liste_carte.h liste_joueur.h pile_carte.h pion.h plateau.h
 DEPS = $(patsubst %, $(IDIR)/%, $(_DEPS))
 
-_OBJ = carte.o joueur.o liste_carte.o liste_joueur.o paquet.o pion.o plateau.o main.o
+_OBJ = carte.o joueur.o liste_carte.o liste_joueur.o pile_carte.o pion.o plateau.o main.o
 OBJ = $(patsubst %, $(ODIR)/%, $(_OBJ))
 
 all: nain-jaune

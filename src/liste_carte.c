@@ -2,7 +2,7 @@
 #include "liste_carte.h"
 
 size_t
-nombre_cartes(ListeCarte* premiere)
+nombre_liste_cartes(ListeCarte* premiere)
 {
     size_t n = 0;
     ListeCarte* temp = premiere;
@@ -68,7 +68,7 @@ melanger_cartes(ListeCarte** premiere)
         ListeCarte* temp = *premiere;
         while (temp->suivante)
         {
-            size_t rnd = (size_t) rand() / (RAND_MAX / nombre_cartes(*premiere) + 1);
+            size_t rnd = (size_t) rand() / (RAND_MAX / nombre_liste_cartes(*premiere) + 1);
 
             ListeCarte* echange = trouver_carte(*premiere, rnd);
             Carte* c = echange->carte;
@@ -83,7 +83,7 @@ melanger_cartes(ListeCarte** premiere)
 void
 trier_cartes(ListeCarte** premiere)
 {
-    size_t taille = nombre_cartes(*premiere);
+    size_t taille = nombre_liste_cartes(*premiere);
     for (size_t n = taille; n > 1; n--)
     {
         ListeCarte* temp = *premiere;
@@ -100,7 +100,7 @@ trier_cartes(ListeCarte** premiere)
 }
 
 void
-afficher_cartes(ListeCarte* premiere)
+afficher_liste_cartes(ListeCarte* premiere)
 {
     ListeCarte* temp = premiere;
     while (temp != NULL)
