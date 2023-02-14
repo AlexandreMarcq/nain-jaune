@@ -120,6 +120,18 @@ trier_cartes(ListeCarte** premiere)
 }
 
 void
+afficher_cartes(ListeCarte* premiere)
+{
+    ListeCarte* temp = premiere;
+
+    while (temp->suivante != NULL)
+    {
+        afficher_carte(temp->carte);
+        temp = temp->suivante;
+    }
+}
+
+void
 vider_liste_cartes(ListeCarte* premiere)
 {
     ListeCarte* temp;
