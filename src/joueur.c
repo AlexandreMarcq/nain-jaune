@@ -84,8 +84,7 @@ void
 afficher_joueurs(ListeJoueur* premier)
 {
     ListeJoueur* temp = premier;
-
-    while (temp->suivant != NULL)
+    while (temp != NULL)
     {
         afficher_joueur(temp->joueur);
         temp = temp->suivant;

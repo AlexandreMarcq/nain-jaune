@@ -123,8 +123,7 @@ void
 afficher_cartes(ListeCarte* premiere)
 {
     ListeCarte* temp = premiere;
-
-    while (temp->suivante != NULL)
+    while (temp != NULL)
     {
         afficher_carte(temp->carte);
         temp = temp->suivante;
