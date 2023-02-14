@@ -2,7 +2,7 @@
 #define PLATEAU_H
 
 #include <stdlib.h>
-#include "joueur.h"
+#include "liste_joueur.h"
 #include "paquet.h"
 #include "pion.h"
 

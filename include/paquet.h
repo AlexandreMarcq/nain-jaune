@@ -2,7 +2,7 @@
 #define PAQUET_H
 
 #include <stdlib.h>
-#include "carte.h"
+#include "liste_carte.h"
 
 typedef struct {
     size_t taille;
