@@ -23,6 +23,24 @@ nouveau_plateau(size_t nombre_joueurs)
 }
 
 void
+distribuer_cartes(Plateau* p)
+{
+    size_t cartes_par_joueur = p->paquet->taille / nombre_joueurs(p->joueurs);
+
+    ListeJoueur* joueur_curs = p->joueurs;
+    ListeCarte* carte_curs = p->paquet->cartes;
+    while (joueur_curs != NULL)
+    {
+        for (size_t n = 0; n < cartes_par_joueur; n++)
+        {
+            ajouter_carte(&(joueur_curs->joueur->main), carte_curs->carte);
+            carte_curs = carte_curs->suivante;
+        } 
+        joueur_curs = joueur_curs->suivant;
+    }
+}
+
+void
 supprimer_plateau(Plateau* p)
 {
     supprimer_paquet(p->paquet);

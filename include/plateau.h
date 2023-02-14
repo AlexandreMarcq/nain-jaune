@@ -17,6 +17,7 @@ typedef struct {
 } Plateau;
 
 Plateau* nouveau_plateau(size_t nombre_joueurs);
+void distribuer_cartes(Plateau* p);
 void supprimer_plateau(Plateau* p);
 
 #endif
