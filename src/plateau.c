@@ -27,10 +27,7 @@ generer_paquet(Plateau* p)
     {
         for (int valeur = AS; valeur <= ROI; valeur++)
         {
-            Carte* c = (Carte*) malloc(sizeof(Carte));
-            c->couleur = couleur;
-            c->valeur = valeur;
-            ajouter_carte(&(p->paquet), c);
+            ajouter_carte(&(p->paquet), nouvelle_carte(valeur, couleur));
         }
     }
 }

@@ -37,6 +37,15 @@ nom_valeur(Valeur v)
     }
 }
 
+Carte*
+nouvelle_carte(Valeur v, Couleur c)
+{
+    Carte* carte = (Carte*) malloc(sizeof(Carte));
+    carte->valeur = v;
+    carte->couleur = c;
+    return carte;
+}
+
 void
 afficher_carte(Carte* c)
 {
