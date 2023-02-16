@@ -1,10 +1,12 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include "joueur.h"
 
 Joueur*
-nouveau_joueur()
+nouveau_joueur(char* nom)
 {
     Joueur* j = (Joueur*) malloc(sizeof(Joueur));
+    j->nom = nom;
     j->main = NULL;
     initialiser_pions_joueur(j);
     return j;
@@ -23,6 +25,7 @@ initialiser_pions_joueur(Joueur* j)
 void
 afficher_joueur(Joueur* j)
 {
+    printf("Nom : %s\n", j->nom);
     afficher_pions(*(j->pions));
 }
 

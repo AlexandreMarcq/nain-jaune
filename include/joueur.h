@@ -5,6 +5,7 @@
 #include "pion.h"
 
 typedef struct {
+    char* nom;
     ListeCarte* main;
     Pions* pions;
 } Joueur;
