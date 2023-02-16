@@ -10,7 +10,7 @@ typedef struct ListeJoueur {
 
 size_t nombre_joueurs(ListeJoueur* premier);
 void ajouter_joueur(ListeJoueur** premier, Joueur* j);
-void afficher_joueurs(ListeJoueur* premier);
+void afficher_liste_joueurs(ListeJoueur* premier);
 void vider_liste_joueurs(ListeJoueur* premier);
 
 #endif

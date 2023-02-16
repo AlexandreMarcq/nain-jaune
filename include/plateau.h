@@ -2,7 +2,9 @@
 #define PLATEAU_H
 
 #include <stdlib.h>
+#include "liste_carte.h"
 #include "liste_joueur.h"
+#include "pile_carte.h"
 #include "pion.h"
 
 typedef struct {
