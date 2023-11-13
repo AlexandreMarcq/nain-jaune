@@ -6,10 +6,10 @@
 *.d
 
 # Object files
-*.o
-*.ko
-*.obj
-*.elf
+src/obj/*.o
+src/obj/*.ko
+src/obj/*.obj
+src/obj/*.elf
 
 # Linker output
 *.ilk
