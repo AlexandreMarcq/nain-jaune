@@ -8,5 +8,6 @@ typedef struct {
 } Pions;
 
 void afficher_pions(Pions p);
+void transferer_pions(Pions* source, Pions* destination, Pions* montant);
 
 #endif
